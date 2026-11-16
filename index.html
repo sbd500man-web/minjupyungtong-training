@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>민주평통 연수 분석</title>
+<meta name="description" content="전북 14개 시군 민주평통 협의회 연수 64건(2021~2025) 전체 목록과 보조금 사용 분석">
+<meta property="og:type" content="article">
+<meta property="og:title" content="민주평통 시군협의회 연수, 5년간 어디에 얼마를 썼나">
+<meta property="og:description" content="전북 14개 시군 민주평통 협의회 연수 64건(2021~2025) 전체 목록과 보조금 사용 분석">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --ink:#1b1d22; --muted:#6b6f78; --line:#e4e2dc;
+  --accent:#c8372d; --accent-soft:#f6dcd9; --blue:#2f5d9e; --blue-soft:#dde7f5;
+  --bar:#2f5d9e; --bar-top:#c8372d; --chip:#efeee9; --row-hover:#faf8f3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171b; --surface:#1e2127; --ink:#eceae5; --muted:#9a9ea7; --line:#2f333b;
+    --accent:#ef6a5e; --accent-soft:#4a2522; --blue:#7fa6de; --blue-soft:#24324a;
+    --bar:#6f97d3; --bar-top:#ef6a5e; --chip:#2a2e35; --row-hover:#242830;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:40px 24px 80px}
+header .kicker{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.08em}
+h1{font-size:34px;font-weight:900;margin:6px 0 10px;letter-spacing:-.02em;line-height:1.25}
+.lede{color:var(--muted);max-width:820px;margin:0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 36px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpi .l{font-size:13px;color:var(--muted)}
+.kpi .v{font-size:28px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .v small{font-size:15px;font-weight:500;color:var(--muted);margin-left:2px}
+.kpi .s{font-size:12px;color:var(--muted)}
+h2{font-size:22px;font-weight:900;margin:0 0 4px;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 20px 16px;display:flex;flex-direction:column}
+.card .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:99px;align-self:flex-start}
+.card h3{font-size:17px;margin:10px 0 2px;font-weight:700}
+.card .answer{font-size:24px;font-weight:900;margin:8px 0 2px;letter-spacing:-.02em}
+.card .answer-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+.bars{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:22px 52px 1fr auto;align-items:center;gap:8px;padding:4px 0;font-size:13.5px}
+.bars .rk{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;font-size:12px}
+.bars .nm{font-weight:500}
+.bars .track{height:12px;background:var(--chip);border-radius:3px;overflow:hidden}
+.bars .fill{height:100%;background:var(--bar);border-radius:3px}
+.bars li.top .fill{background:var(--bar-top)}
+.bars li.top .nm,.bars li.top .vl{font-weight:700;color:var(--accent)}
+.bars .vl{font-variant-numeric:tabular-nums;text-align:right;min-width:62px}
+.bars .vl em{font-style:normal;color:var(--muted);font-size:12px;display:block;line-height:1.1}
+.far{list-style:none;margin:0;padding:0;counter-reset:f}
+.far li{display:grid;grid-template-columns:22px 1fr auto;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px;align-items:start}
+.far li:first-child{border-top:0}
+.far .rk{color:var(--muted);font-size:12px;text-align:right;padding-top:2px}
+.far .t{font-weight:700}
+.far .d{font-size:12px;color:var(--muted)}
+.far .km{font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.far li.top .t,.far li.top .km{color:var(--accent)}
+.note{font-size:12px;color:var(--muted);margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+select,input[type=search]{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+input[type=search]{min-width:220px;flex:1;max-width:320px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:14px;border:0;background:none;color:var(--muted);padding:7px 12px;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--surface);font-weight:700}
+.count{margin-left:auto;font-size:13px;color:var(--muted)}
+.tbl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{position:sticky;top:0;background:var(--surface);text-align:left;font-size:12.5px;color:var(--muted);font-weight:700;padding:12px 12px;border-bottom:2px solid var(--ink);white-space:nowrap;cursor:pointer;user-select:none}
+thead th.num{text-align:right}
+thead th .ar{opacity:.35;margin-left:3px}
+thead th.sorted .ar{opacity:1;color:var(--accent)}
+tbody td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:hover{background:var(--row-hover)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.no{color:var(--muted);font-variant-numeric:tabular-nums}
+td.sg{font-weight:700;white-space:nowrap}
+td.period{white-space:nowrap;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+td.name{min-width:280px}
+td.dest{white-space:nowrap}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.pill.abroad{background:var(--accent-soft);color:var(--accent)}
+.pill.home{background:var(--blue-soft);color:var(--blue)}
+.cnt{font-weight:700}
+.cnt.zero{color:var(--muted);font-weight:400}
+.cnt.unk{color:var(--muted);font-weight:400;font-size:12.5px}
+.cnt small{display:block;font-size:11.5px;color:var(--muted);font-weight:400}
+tfoot td{padding:12px;font-weight:700;border-top:2px solid var(--ink);background:var(--chip)}
+.foot{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.7}
+@media (max-width:1000px){.cards{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.wrap{padding:24px 16px 60px}h1{font-size:26px}.count{margin-left:0;width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">전북 14개 시군 · 2021–2025</div>
+  <h1>민주평통 시군협의회 연수, 5년간 어디에 얼마를 썼나</h1>
+  <p class="lede">각 시군 정보공개청구 자료(정산서·계획서·명단)를 바탕으로 민주평화통일자문회의 시군협의회 연수 전체 목록과 보조금 사용 내역을 정리했습니다.</p>
+</header>
+
+<section class="kpis" id="kpis"></section>
+
+<section>
+  <h2>핵심 분석</h2>
+  <p class="sec-sub">연수에 투입된 보조금 규모, 사업비 대비 비중, 이동 거리 기준 순위</p>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">① 연수 보조금 총액</span>
+      <h3>5년간 연수에 가장 많이 쓴 지자체</h3>
+      <div class="answer" id="a1"></div>
+      <div class="answer-sub" id="a1s"></div>
+      <ul class="bars" id="rank-amount"></ul>
+      <div class="note">연수 보조금(자부담 제외) 2021~2025 합계 기준</div>
+    </div>
+    <div class="card">
+      <span class="tag">② 총사업비 대비 비중</span>
+      <h3>전체 보조금 중 연수 비중이 가장 높은 지자체</h3>
+      <div class="answer" id="a2"></div>
+      <div class="answer-sub" id="a2s"></div>
+      <ul class="bars" id="rank-share"></ul>
+      <div class="note">비중 = 5년 연수 보조금 합계 ÷ 5년 총사업비(보조금) 합계</div>
+    </div>
+    <div class="card">
+      <span class="tag">③ 이동 거리</span>
+      <h3>가장 멀리 떠난 연수 TOP 10</h3>
+      <div class="answer" id="a3"></div>
+      <div class="answer-sub" id="a3s"></div>
+      <ul class="far" id="rank-far"></ul>
+      <div class="note">각 시군청에서 일정 중 가장 먼 방문지까지의 직선(대권) 거리. 실제 항공 이동 거리는 더 깁니다.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>전체 연수 목록</h2>
+  <p class="sec-sub">열 제목을 누르면 정렬됩니다. 동행 의원 수는 시·군의원과 도의원을 합친 인원입니다(이름 비공개).</p>
+  <div class="controls">
+    <select id="f-sg"><option value="">전체 시군</option></select>
+    <select id="f-yr"><option value="">전체 연도</option></select>
+    <div class="seg" id="f-kind">
+      <button data-v="" class="on">전체</button><button data-v="국내">국내</button><button data-v="해외">해외</button>
+    </div>
+    <input type="search" id="f-q" placeholder="연수명·목적지 검색">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th data-k="no">번호<span class="ar">↕</span></th>
+        <th data-k="sg">시군<span class="ar">↕</span></th>
+        <th data-k="yr">연도<span class="ar">↕</span></th>
+        <th data-k="period">기간<span class="ar">↕</span></th>
+        <th data-k="kind">구분<span class="ar">↕</span></th>
+        <th data-k="name">연수명<span class="ar">↕</span></th>
+        <th data-k="dest">목적지<span class="ar">↕</span></th>
+        <th data-k="sub" class="num">보조금(원)<span class="ar">↕</span></th>
+        <th data-k="cnt" class="num">동행 지방의원<span class="ar">↕</span></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+      <tfoot><tr id="tf"></tr></tfoot>
+    </table>
+  </div>
+  <p class="foot">
+    · 출처: 전북 14개 시군 정보공개청구 자료(정산서·계획서·참가자 명단).<br>
+    · ‘미공개’는 참가자 명단이 공개되지 않아 의원 동행 여부를 판단할 수 없는 건입니다(0명이 아님).<br>
+    · 총사업비는 각 시군이 민주평통 협의회에 지원한 연간 보조금 총액입니다.
+  </p>
+</section>
+</div>
+
+<script>
+const DATA = {"trips": [{"no": 1, "sg": "고창군", "yr": 2021, "period": "2021-12-16 ~ 2021-12-18", "days": 3, "kind": "국내", "dest": "제주", "name": "자문위원 현장체험(제주도) 역량강화 연수", "ppl": 25, "sub": 25000000, "self": 0, "total": 25000000, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 216}, {"no": 2, "sg": "김제시", "yr": 2021, "period": "2021-11-14 ~ 2021-11-16", "days": 3, "kind": "국내", "dest": "경북 울릉도 외 1곳", "name": "자문위원 통일역량강화 워크숍(울릉도)", "ppl": 37, "sub": 25200000, "self": 0, "total": 25200000, "cnt": null, "status": "unknown", "prov": 0, "far": "울릉도", "km": 404}, {"no": 3, "sg": "무주군", "yr": 2021, "period": "2021-12-06 ~ 2021-12-07", "days": 2, "kind": "국내", "dest": "경남 거제 외 2곳", "name": "평화통일공감견학", "ppl": 24, "sub": 1500000, "self": null, "total": 1500000, "cnt": 7, "status": "yes", "prov": 0, "far": "거제", "km": 152}, {"no": 4, "sg": "부안군", "yr": 2021, "period": "2021-11-08 ~ 2021-11-09", "days": 2, "kind": "국내", "dest": "경남 통영 외 2곳", "name": "통일역량강화 자문위원 워크숍", "ppl": 17, "sub": 5764400, "self": 0, "total": 5764400, "cnt": null, "status": "unknown", "prov": 0, "far": "통영", "km": 183}, {"no": 5, "sg": "전주시", "yr": 2021, "period": "2021-11-29 ~ 2021-11-30", "days": 2, "kind": "국내", "dest": "경남 거제", "name": "2021년 민주평통 전주시협의회 자문위원 역량 강화 워크숍", "ppl": 24, "sub": 6420000, "self": 3450000, "total": 9870000, "cnt": null, "status": "unknown", "prov": 0, "far": "거제", "km": 170}, {"no": 6, "sg": "고창군", "yr": 2022, "period": "2022-10-27 ~ 2022-10-29", "days": 3, "kind": "국내", "dest": "부산 외 1곳", "name": "자문위원 현장체험(부산·거제)", "ppl": 26, "sub": 20000000, "self": 0, "total": 20000000, "cnt": null, "status": "unknown", "prov": 0, "far": "거제", "km": 185}, {"no": 7, "sg": "군산시", "yr": 2022, "period": "2022-12-21 ~ 2022-12-22", "days": 2, "kind": "국내", "dest": "경기 파주 외 3곳", "name": "20기 자문위원 역량 강화 워크숍", "ppl": 25, "sub": 8352660, "self": 0, "total": 8352660, "cnt": 1, "status": "yes", "prov": 0, "far": "파주", "km": 199}, {"no": 8, "sg": "김제시", "yr": 2022, "period": "2022-07-14 ~ 2022-07-16", "days": 3, "kind": "국내", "dest": "경기 평택 외 3곳", "name": "자문위원 통일역량강화 워크숍(평화·안보 유적지, 파주 일원)", "ppl": 50, "sub": 26000000, "self": 0, "total": 26000000, "cnt": null, "status": "unknown", "prov": 0, "far": "파주", "km": 218}, {"no": 9, "sg": "남원시", "yr": 2022, "period": "2022-06-24 ~ 2022-06-27", "days": 4, "kind": "국내", "dest": "제주", "name": "통일역량 강화를 위한 자문위원 워크숍(제주도)", "ppl": 36, "sub": 30600000, "self": 0, "total": 30600000, "cnt": 10, "status": "yes", "prov": 0, "far": "제주", "km": 227}, {"no": 10, "sg": "무주군", "yr": 2022, "period": "2022-08-24 ~ 2022-08-26", "days": 3, "kind": "국내", "dest": "제주", "name": "자문위원 역량강화 워크숍", "ppl": 26, "sub": 14300000, "self": 6675000, "total": 20975000, "cnt": 7, "status": "yes", "prov": 0, "far": "제주", "km": 297}, {"no": 11, "sg": "부안군", "yr": 2022, "period": "2022-10-04 ~ 2022-10-06", "days": 3, "kind": "국내", "dest": "제주", "name": "평화통일 역량강화 자문위원 워크숍 (제주)", "ppl": 37, "sub": 27500000, "self": 0, "total": 27500000, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 249}, {"no": 12, "sg": "순창군", "yr": 2022, "period": "2022-10-03 ~ 2022-10-05", "days": 3, "kind": "국내", "dest": "제주", "name": "제20기 통일역량강화를 위한 자문위원 견학 (제주)", "ppl": 34, "sub": 24820000, "self": 8160000, "total": 32980000, "cnt": 8, "status": "yes", "prov": 0, "far": "제주", "km": 216}, {"no": 13, "sg": "완주군", "yr": 2022, "period": "2022-11-28", "days": 1, "kind": "국내", "dest": "경북 김천", "name": "김천시·완주군 협의회 화합교류 (2022 4분기 합동 정기회의, 김천 방문)", "ppl": 20, "sub": 2850000, "self": 0, "total": 2850000, "cnt": 1, "status": "yes", "prov": 0, "far": "김천", "km": 89}, {"no": 14, "sg": "익산시", "yr": 2022, "period": "2022-07-05 ~ 2022-07-09", "days": 5, "kind": "해외", "dest": "베트남 호치민 외 1곳", "name": "제20기 자문위원 통일워크숍 (베트남 호치민/나트랑 전적지 탐방 5일)", "ppl": 28, "sub": 45000000, "self": 0, "total": 45000000, "cnt": 0, "status": "no", "prov": 0, "far": "호치민", "km": 3463}, {"no": 15, "sg": "임실군", "yr": 2022, "period": "2022-12-20 ~ 2022-12-22", "days": 3, "kind": "국내", "dest": "제주", "name": "20기 통일역량강화를 위한 자문위원 워크숍 (항일유적지 및 민주화운동 현장탐방, 제주)", "ppl": 33, "sub": 20000000, "self": 0, "total": 20000000, "cnt": 6, "status": "yes", "prov": 0, "far": "제주", "km": 246}, {"no": 16, "sg": "전주시", "yr": 2022, "period": "2022-11-10 ~ 2022-11-11", "days": 2, "kind": "국내", "dest": "강원 철원 외 1곳", "name": "2022년 민주평통 전주시협의회 자문위원 역량 강화 워크숍 (철원·연천 남북접경지역)", "ppl": 18, "sub": 7621300, "self": 6000000, "total": 13621300, "cnt": null, "status": "unknown", "prov": 0, "far": "철원", "km": 259}, {"no": 17, "sg": "전주시", "yr": 2022, "period": "2022-12-28 ~ 2022-12-29", "days": 2, "kind": "국내", "dest": "전북 부안", "name": "2022년 민주평통 전주시협의회 자문위원(간부) 역량 강화 워크숍 (부안)", "ppl": 12, "sub": 2140800, "self": 0, "total": 2140800, "cnt": 3, "status": "yes", "prov": 0, "far": "부안", "km": 39}, {"no": 18, "sg": "정읍시", "yr": 2022, "period": "2022-06-12 ~ 2022-06-14", "days": 3, "kind": "국내", "dest": "제주", "name": "2022 평화통일역량 강화 자문위원 워크숍(제주도)", "ppl": 24, "sub": 20450000, "self": 0, "total": 20450000, "cnt": 3, "status": "yes", "prov": 0, "far": "제주", "km": 232}, {"no": 19, "sg": "진안군", "yr": 2022, "period": "2022-09-16", "days": 1, "kind": "국내", "dest": "경남 거제", "name": "2022년 자문위원 워크숍 (거제 포로수용소 견학)", "ppl": 23, "sub": 3000000, "self": 0, "total": 3000000, "cnt": 4, "status": "yes", "prov": 0, "far": "거제", "km": 148}, {"no": 20, "sg": "고창군", "yr": 2023, "period": "2023-04-26 ~ 2023-04-28", "days": 3, "kind": "국내", "dest": "제주", "name": "자문위원 현장체험(제주) — 국토 최남단 통일퍼포먼스·항일유적 탐방", "ppl": 24, "sub": 20110000, "self": 0, "total": 20110000, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 216}, {"no": 21, "sg": "군산시", "yr": 2023, "period": "2023-03-24 ~ 2023-03-29", "days": 6, "kind": "해외", "dest": "베트남 호치민 외 1곳", "name": "20기 자문위원 역량 강화 워크숍 (베트남·캄보디아, 베트남협의회 간담회 포함)", "ppl": 19, "sub": 16150000, "self": 20900000, "total": 37050000, "cnt": 4, "status": "yes", "prov": 0, "far": "캄보디아 프놈펜", "km": 3488}, {"no": 22, "sg": "김제시", "yr": 2023, "period": "2023-04-27 ~ 2023-04-29", "days": 3, "kind": "국내", "dest": "제주", "name": "자문위원 통일역량강화 워크숍(제주 평화·안보 유적지)", "ppl": 40, "sub": 26000000, "self": 0, "total": 26000000, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 258}, {"no": 23, "sg": "남원시", "yr": 2023, "period": "2023-04-27 ~ 2023-04-29", "days": 3, "kind": "국내", "dest": "강원 강릉 외 2곳", "name": "'평화로(路) 걷다. 통일을 만나다' 강원도 평화·안보 워크숍", "ppl": 30, "sub": 19050000, "self": 0, "total": 19050000, "cnt": 11, "status": "yes", "prov": 1, "far": "강릉", "km": 292}, {"no": 24, "sg": "남원시", "yr": 2023, "period": "2023-08-17 ~ 2023-08-19", "days": 3, "kind": "국내", "dest": "경북 포항 외 2곳", "name": "2023년 통일로 한걸음 워크숍(포항·경주·부산)", "ppl": 25, "sub": 14950000, "self": 0, "total": 14950000, "cnt": 10, "status": "yes", "prov": 0, "far": "포항", "km": 188}, {"no": 25, "sg": "무주군", "yr": 2023, "period": "2023-04-25 ~ 2023-04-29", "days": 5, "kind": "해외", "dest": "베트남", "name": "베트남협의회 업무교류 및 대한한글학교 장학금 전달", "ppl": 18, "sub": 19700000, "self": 11500000, "total": 31200000, "cnt": 2, "status": "yes", "prov": 1, "far": "베트남 하노이", "km": 2693}, {"no": 26, "sg": "무주군", "yr": 2023, "period": "2023-05-09", "days": 1, "kind": "국내", "dest": "전남 여수 외 1곳", "name": "평화통일 공감 견학", "ppl": 25, "sub": 1500000, "self": null, "total": 1500000, "cnt": 0, "status": "no", "prov": 0, "far": "여수", "km": 139}, {"no": 27, "sg": "부안군", "yr": 2023, "period": "2023-07-03 ~ 2023-07-07", "days": 5, "kind": "해외", "dest": "베트남 호치민 외 1곳", "name": "평화통일 역량강화 자문위원 워크숍 (베트남 호치민)", "ppl": 35, "sub": 46272980, "self": 0, "total": 46272980, "cnt": null, "status": "unknown", "prov": 0, "far": "호치민", "km": 3432}, {"no": 28, "sg": "순창군", "yr": 2023, "period": "2023-03-10 ~ 2023-03-15", "days": 6, "kind": "해외", "dest": "싱가포르 외 1곳", "name": "제20기 통일역량강화를 위한 자문위원연수 (싱가포르/베트남 호치민 안보시찰)", "ppl": 21, "sub": 36275000, "self": 21000000, "total": 57275000, "cnt": 0, "status": "no", "prov": 0, "far": "싱가포르", "km": 4485}, {"no": 29, "sg": "완주군", "yr": 2023, "period": "2023-11-28 ~ 2023-11-30", "days": 3, "kind": "국내", "dest": "경기 고양 외 3곳", "name": "21기 자문위원 워크숍 (고양 21기 전체회의 참석 및 파주·연천·철원 DMZ 견학)", "ppl": 30, "sub": 13390000, "self": 0, "total": 13390000, "cnt": null, "status": "unknown", "prov": 0, "far": "철원", "km": 250}, {"no": 30, "sg": "익산시", "yr": 2023, "period": "2023-06-19 ~ 2023-06-23", "days": 5, "kind": "해외", "dest": "중국 연길 외 3곳", "name": "2023 자문위원 통일역량강화 워크숍 (연길·백두산 북파 훈춘 4박5일)", "ppl": 48, "sub": 48000000, "self": 3908800, "total": 51908800, "cnt": 16, "status": "yes", "prov": 0, "far": "훈춘", "km": 823}, {"no": 31, "sg": "임실군", "yr": 2023, "period": "2023-05-08 ~ 2023-05-12", "days": 5, "kind": "해외", "dest": "베트남 다낭 외 1곳", "name": "제20기 자문위원 통일현장견학 해외 연수 (베트남 다낭·호이안)", "ppl": 30, "sub": 30000000, "self": 6000000, "total": 36000000, "cnt": 5, "status": "yes", "prov": 0, "far": "다낭", "km": 2884}, {"no": 32, "sg": "임실군", "yr": 2023, "period": "2023-11-28 ~ 2023-11-29", "days": 2, "kind": "국내", "dest": "경기 고양 외 2곳", "name": "제21기 자문위원 통일역량강화 연수 (충남 보령·서천, 전체회의 연계)", "ppl": 31, "sub": 5000000, "self": 0, "total": 5000000, "cnt": 8, "status": "yes", "prov": 0, "far": "고양", "km": 231}, {"no": 33, "sg": "장수군", "yr": 2023, "period": "2023-05-03 ~ 2023-05-09", "days": 7, "kind": "해외", "dest": "호주 시드니", "name": "제20기 자문위원 평화통일역량강화 연수 (호주 시드니)", "ppl": 20, "sub": 45000000, "self": 7000000, "total": 52000000, "cnt": 5, "status": "yes", "prov": 2, "far": "시드니", "km": 8113}, {"no": 34, "sg": "전주시", "yr": 2023, "period": "2023-06-28 ~ 2023-06-30", "days": 3, "kind": "국내", "dest": "경북 울릉도 외 1곳", "name": "2023년 민주평통 전주시협의회 자문위원 역량 강화 워크숍 (울릉도·독도)", "ppl": 28, "sub": 14000000, "self": 0, "total": 14000000, "cnt": 4, "status": "yes", "prov": 0, "far": "울릉도·독도", "km": 450}, {"no": 35, "sg": "진안군", "yr": 2023, "period": "2023-04-09 ~ 2023-04-12", "days": 4, "kind": "국내", "dest": "제주", "name": "2023 자문위원 역량강화연수 (제주)", "ppl": 24, "sub": 20240000, "self": 0, "total": 20240000, "cnt": 5, "status": "yes", "prov": 0, "far": "제주", "km": 268}, {"no": 36, "sg": "고창군", "yr": 2024, "period": "2024-06-01 ~ 2024-06-04", "days": 4, "kind": "해외", "dest": "중국 상해 외 1곳", "name": "자문위원 현장체험(중국 상해·항주) — 2분기 정기회의 겸", "ppl": 29, "sub": 25000000, "self": 0, "total": 25000000, "cnt": null, "status": "unknown", "prov": 0, "far": "항주", "km": 839}, {"no": 37, "sg": "군산시", "yr": 2024, "period": "2024-08-16 ~ 2024-08-19", "days": 4, "kind": "해외", "dest": "중국 연길 외 3곳", "name": "21기 자문위원 역량 강화 워크숍 (자문위원 통일역량 강화 워크숍)", "ppl": 26, "sub": 19500000, "self": 23520000, "total": 43020000, "cnt": 7, "status": "yes", "prov": 0, "far": "훈춘", "km": 828}, {"no": 38, "sg": "김제시", "yr": 2024, "period": "2024-07-05 ~ 2024-07-08", "days": 4, "kind": "해외", "dest": "중국 연길 외 1곳", "name": "2024년 자문위원 통일역량강화 워크숍(중국 연길·백두산)", "ppl": 35, "sub": 26000000, "self": 0, "total": 26000000, "cnt": null, "status": "unknown", "prov": 0, "far": "연길", "km": 820}, {"no": 39, "sg": "남원시", "yr": 2024, "period": "2024-07-04 ~ 2024-07-09", "days": 6, "kind": "해외", "dest": "베트남 하노이 외 2곳", "name": "통일역량 강화를 위한 자문위원 국외연수(베트남·캄보디아)", "ppl": 24, "sub": 28800000, "self": 8400000, "total": 37200000, "cnt": 0, "status": "no", "prov": 0, "far": "캄보디아 시엠립", "km": 3401}, {"no": 40, "sg": "남원시", "yr": 2024, "period": "2024-10-22", "days": 1, "kind": "국내", "dest": "전남 목포", "name": "'평화로(路) 걷다. 통일을 만나다' 통일역량 강화 자문위원 워크숍(목포)", "ppl": 30, "sub": 4180000, "self": 0, "total": 4180000, "cnt": 6, "status": "yes", "prov": 0, "far": "목포", "km": 113}, {"no": 41, "sg": "부안군", "yr": 2024, "period": "2024-12-01 ~ 2024-12-02", "days": 2, "kind": "국내", "dest": "서울", "name": "자문위원 역량강화 워크숍 (부안군협의회-베트남 하노이지회 합동워크숍, 서울)", "ppl": 35, "sub": 26040950, "self": 0, "total": 26040950, "cnt": null, "status": "unknown", "prov": 0, "far": "서울", "km": 206}, {"no": 42, "sg": "순창군", "yr": 2024, "period": "2024-06-05 ~ 2024-06-12", "days": 8, "kind": "해외", "dest": "독일 외 2곳", "name": "제21기 통일역량강화를 위한 자문위원연수 (독일/오스트리아/체코 안보시찰)", "ppl": 18, "sub": 45000000, "self": 27000000, "total": 72000000, "cnt": 3, "status": "yes", "prov": 0, "far": "독일 베를린", "km": 8334}, {"no": 43, "sg": "순창군", "yr": 2024, "period": "2024-10-22 ~ 2024-10-23", "days": 2, "kind": "국내", "dest": "부산", "name": "자매결연 순창군-부산진구협의회 합동세미나(통일교류) (부산)", "ppl": 20, "sub": 4100000, "self": 0, "total": 4100000, "cnt": 0, "status": "no", "prov": 0, "far": "부산", "km": 178}, {"no": 44, "sg": "완주군", "yr": 2024, "period": "2024-05-20 ~ 2024-05-25", "days": 6, "kind": "해외", "dest": "베트남 호치민 외 2곳", "name": "해외지역교류 및 자문위원 워크숍 (베트남 호치민·달랏·나트랑)", "ppl": 28, "sub": 40000000, "self": 0, "total": 40000000, "cnt": null, "status": "unknown", "prov": 0, "far": "호치민", "km": 3472}, {"no": 45, "sg": "익산시", "yr": 2024, "period": "2024-05-27 ~ 2024-05-30", "days": 4, "kind": "해외", "dest": "중국 상해 외 1곳", "name": "제21기 자문위원 통일워크숍 (2024 자문위원 역량강화 워크숍, 중국 상해·항주 유적지 탐방 3박4일)", "ppl": 41, "sub": 50000000, "self": 0, "total": 50000000, "cnt": 9, "status": "yes", "prov": 0, "far": "항주", "km": 894}, {"no": 46, "sg": "임실군", "yr": 2024, "period": "2024-04-15 ~ 2024-04-16", "days": 2, "kind": "국내", "dest": "경남 거제 외 1곳", "name": "2024년 자문위원 역량강화 워크숍 (거제·부산)", "ppl": 26, "sub": 5000000, "self": 0, "total": 5000000, "cnt": 5, "status": "yes", "prov": 0, "far": "거제", "km": 146}, {"no": 47, "sg": "임실군", "yr": 2024, "period": "2024-10-27 ~ 2024-10-30", "days": 4, "kind": "해외", "dest": "중국 항주 외 2곳", "name": "2024년 자문위원 해외통일공감견학 (중국 항주·신선거·가흥)", "ppl": 20, "sub": 20000000, "self": 6000000, "total": 26000000, "cnt": 0, "status": "no", "prov": 0, "far": "신선거", "km": 988}, {"no": 48, "sg": "전주시", "yr": 2024, "period": "2024-10-23 ~ 2024-10-27", "days": 5, "kind": "해외", "dest": "베트남 하노이 외 1곳", "name": "2024년 민주평통 전주시협의회 자문위원 역량 강화 워크숍 (베트남 하노이·하롱베이 해외연수)", "ppl": 32, "sub": 30000000, "self": 0, "total": 30000000, "cnt": 4, "status": "yes", "prov": 0, "far": "하노이", "km": 2643}, {"no": 49, "sg": "진안군", "yr": 2024, "period": "2024-06-20 ~ 2024-06-21", "days": 2, "kind": "국내", "dest": "부산", "name": "민주평통 자문위원 역량강화 연수 (부산)", "ppl": 26, "sub": 9704500, "self": 1000000, "total": 10704500, "cnt": 7, "status": "yes", "prov": 1, "far": "부산", "km": 165}, {"no": 50, "sg": "고창군", "yr": 2025, "period": "2025-06-27 ~ 2025-07-01", "days": 5, "kind": "해외", "dest": "베트남 하노이 외 1곳", "name": "자문위원 현장체험(베트남 하노이) — '베트남을 통해 배우는 북한의 현실과 우리의 미래'", "ppl": 21, "sub": 25000000, "self": 0, "total": 25000000, "cnt": null, "status": "unknown", "prov": 0, "far": "하노이", "km": 2586}, {"no": 51, "sg": "군산시", "yr": 2025, "period": "2025-07-03 ~ 2025-07-06", "days": 4, "kind": "해외", "dest": "중국 상해 외 2곳", "name": "자문위원 통일역량 강화 워크숍 (상해·항주 3박4일 문화연수)", "ppl": 29, "sub": 20300000, "self": 21750000, "total": 42050000, "cnt": 2, "status": "yes", "prov": 0, "far": "항주", "km": 881}, {"no": 52, "sg": "김제시", "yr": 2025, "period": "2025-12-22 ~ 2025-12-24", "days": 3, "kind": "국내", "dest": "제주", "name": "2025년 자문위원 통일역량강화 워크숍(제주)", "ppl": 46, "sub": 26000000, "self": 0, "total": 26000000, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 258}, {"no": 53, "sg": "남원시", "yr": 2025, "period": "2025-07-15 ~ 2025-07-19", "days": 5, "kind": "해외", "dest": "몽골 울란바토르 외 1곳", "name": "통일역량 강화를 위한 자문위원 국외연수(몽골 울란바토르·테를지)", "ppl": 28, "sub": 35000000, "self": 0, "total": 35000000, "cnt": 4, "status": "yes", "prov": 0, "far": "울란바토르", "km": 2183}, {"no": 54, "sg": "무주군", "yr": 2025, "period": "2025-11-27", "days": 1, "kind": "국내", "dest": "경남 창원", "name": "평화통일공감견학", "ppl": 21, "sub": 1500000, "self": 0, "total": 1500000, "cnt": 0, "status": "no", "prov": 0, "far": "창원", "km": 126}, {"no": 55, "sg": "무주군", "yr": 2025, "period": "2025-12-12 ~ 2025-12-14", "days": 3, "kind": "국내", "dest": "제주", "name": "자문위원 역량강화 워크숍", "ppl": 18, "sub": 16285000, "self": 2450000, "total": 18735000, "cnt": 0, "status": "no", "prov": 0, "far": "제주", "km": 297}, {"no": 56, "sg": "부안군", "yr": 2025, "period": "2025-12-19 ~ 2025-12-21", "days": 3, "kind": "국내", "dest": "제주", "name": "2025년 민주평화통일자문회의 부안군협의회 연수 (역량강화 워크숍, 제주)", "ppl": 20, "sub": 31089630, "self": 0, "total": 31089630, "cnt": null, "status": "unknown", "prov": 0, "far": "제주", "km": 249}, {"no": 57, "sg": "순창군", "yr": 2025, "period": "2025-06-05 ~ 2025-06-10", "days": 6, "kind": "해외", "dest": "호주 시드니", "name": "제21기 통일역량강화를 위한 자문위원연수 (호주 시드니 안보시찰)", "ppl": 19, "sub": 45000000, "self": 27000000, "total": 72000000, "cnt": 2, "status": "yes", "prov": 0, "far": "시드니", "km": 8096}, {"no": 58, "sg": "익산시", "yr": 2025, "period": "2025-07-01 ~ 2025-07-04", "days": 4, "kind": "해외", "dest": "홍콩 외 1곳", "name": "제21기 자문위원 통일역량강화 워크숍 (민주화의 메카-홍콩, 홍콩·마카오 안보현장 3박4일)", "ppl": 47, "sub": 48940000, "self": 24730000, "total": 73670000, "cnt": 14, "status": "yes", "prov": 0, "far": "마카오", "km": 2005}, {"no": 59, "sg": "임실군", "yr": 2025, "period": "2025-04-10 ~ 2025-04-11", "days": 2, "kind": "국내", "dest": "전남 완도", "name": "22기 자문위원 역량강화 워크숍", "ppl": 30, "sub": 9000000, "self": 0, "total": 9000000, "cnt": 4, "status": "yes", "prov": 0, "far": "완도", "km": 154}, {"no": 60, "sg": "임실군", "yr": 2025, "period": "2025-07-13 ~ 2025-07-16", "days": 4, "kind": "해외", "dest": "몽골 울란바토르 외 1곳", "name": "2025년 자문위원 해외통일공감견학 (몽골 울란바토르·테를지)", "ppl": 24, "sub": 25000000, "self": 10000000, "total": 35000000, "cnt": 4, "status": "yes", "prov": 0, "far": "울란바토르", "km": 2161}, {"no": 61, "sg": "장수군", "yr": 2025, "period": "2025-06-09 ~ 2025-06-17", "days": 9, "kind": "해외", "dest": "독일 외 2곳", "name": "2025년 제21기 자문위원 통일역량강화 연수 (독일/오스트리아/체코)", "ppl": 17, "sub": 41440000, "self": 24480000, "total": 65920000, "cnt": null, "status": "unknown", "prov": 0, "far": "독일 베를린", "km": 8329}, {"no": 62, "sg": "전주시", "yr": 2025, "period": "2025-07-12 ~ 2025-07-15", "days": 4, "kind": "해외", "dest": "일본 가나자와 외 1곳", "name": "2025년 민주평통 전주시협의회 자문위원 역량 강화 워크숍 (광복 80주년 일본 이시카와현 가나자와·오사카 연수)", "ppl": 31, "sub": 30000000, "self": 0, "total": 30000000, "cnt": null, "status": "unknown", "prov": 0, "far": "가나자와", "km": 857}, {"no": 63, "sg": "정읍시", "yr": 2025, "period": "2025-07-05 ~ 2025-07-07", "days": 3, "kind": "국내", "dest": "제주", "name": "제21기 자문위원 통일역량 강화 워크숍(제주도)", "ppl": 25, "sub": 20000000, "self": 0, "total": 20000000, "cnt": 2, "status": "yes", "prov": 0, "far": "제주", "km": 232}, {"no": 64, "sg": "진안군", "yr": 2025, "period": "2025-07-10 ~ 2025-07-11", "days": 2, "kind": "국내", "dest": "강원 철원", "name": "민주평통 자문위원 역량강화 연수 (강원 철원 DMZ)", "ppl": 21, "sub": 8813300, "self": 1000000, "total": 9813300, "cnt": 3, "status": "yes", "prov": 0, "far": "철원", "km": 262}], "budget": {"전주시": {"y2025": 80000000, "y2024": 80000000, "y2023": 60000000, "y2022": 60000000, "y2021": 60000000, "total": 340000000}, "군산시": {"y2025": 46280000, "y2024": 46760000, "y2023": 47520000, "y2022": 47600000, "y2021": 46660000, "total": 234820000}, "익산시": {"y2025": 91500000, "y2024": 87820000, "y2023": 89800000, "y2022": 79800000, "y2021": 78000000, "total": 426920000}, "정읍시": {"y2025": 46950000, "y2024": 26950000, "y2023": 73000000, "y2022": 80000000, "y2021": 20500000, "total": 247400000}, "남원시": {"y2025": 66700000, "y2024": 65700000, "y2023": 65000000, "y2022": 64000000, "y2021": 58900000, "total": 320300000}, "김제시": {"y2025": 64300000, "y2024": 63300000, "y2023": 63300000, "y2022": 63300000, "y2021": 62300000, "total": 316500000}, "완주군": {"y2025": 65200000, "y2024": 64600000, "y2023": 24120000, "y2022": 24120000, "y2021": 15000000, "total": 193040000}, "진안군": {"y2025": 30860000, "y2024": 30860000, "y2023": 35060000, "y2022": 21260000, "y2021": 19500000, "total": 137540000}, "무주군": {"y2025": 22100000, "y2024": 22100000, "y2023": 30800000, "y2022": 30400000, "y2021": 31500000, "total": 136900000}, "장수군": {"y2025": 75380000, "y2024": 33680000, "y2023": 68170000, "y2022": 49000000, "y2021": 15000000, "total": 241230000}, "임실군": {"y2025": 47000000, "y2024": 38000000, "y2023": 50000000, "y2022": 40000000, "y2021": 20000000, "total": 195000000}, "순창군": {"y2025": 86500000, "y2024": 91870000, "y2023": 81390000, "y2022": 59490000, "y2021": 59490000, "total": 378740000}, "고창군": {"y2025": 50000000, "y2024": 50000000, "y2023": 50000000, "y2022": 50000000, "y2021": 50000000, "total": 250000000}, "부안군": {"y2025": 76200000, "y2024": 91600000, "y2023": 91600000, "y2022": 77000000, "y2021": 54000000, "total": 390400000}, "전체 합계": {"y2025": 848970000, "y2024": 793240000, "y2023": 829760000, "y2022": 745970000, "y2021": 590850000, "total": 3808790000}}};
+const T = DATA.trips, B = DATA.budget;
+const won = n => n.toLocaleString('ko-KR');
+const eok = n => (n/1e8).toFixed(2).replace(/\.?0+$/,'') + '억';
+const man = n => Math.round(n/1e4).toLocaleString('ko-KR') + '만';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// KPI
+const totalSub = T.reduce((a,t)=>a+t.sub,0);
+const abroad = T.filter(t=>t.kind==='해외');
+const abroadSub = abroad.reduce((a,t)=>a+t.sub,0);
+const council = T.reduce((a,t)=>a+(t.cnt||0),0);
+const unk = T.filter(t=>t.status==='unknown').length;
+const kpis = [
+  ['전체 연수', T.length, '건', '14개 시군 · 5년'],
+  ['연수 보조금 합계', eok(totalSub), '원', won(totalSub)+'원'],
+  ['해외 연수', abroad.length, '건', `보조금 ${eok(abroadSub)}원 (${(abroadSub/totalSub*100).toFixed(1)}%)`],
+  ['동행 지방의원(연인원)', council, '명', `시·군의원 ${council-T.reduce((a,t)=>a+t.prov,0)} + 도의원 ${T.reduce((a,t)=>a+t.prov,0)} · 명단 미공개 ${unk}건 제외`],
+];
+document.getElementById('kpis').innerHTML = kpis.map(k=>`<div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}<small>${k[2]}</small></div><div class="s">${k[3]}</div></div>`).join('');
+
+// 시군별 집계
+const agg = {};
+Object.keys(B).forEach(sg=>agg[sg]={sg,sub:0,n:0,budget:B[sg].total});
+T.forEach(t=>{agg[t.sg].sub+=t.sub;agg[t.sg].n++;});
+const A = Object.values(agg).map(a=>({...a,share:a.sub/a.budget}));
+
+// ① 총액
+const byAmt = [...A].sort((a,b)=>b.sub-a.sub);
+const maxAmt = byAmt[0].sub;
+document.getElementById('a1').textContent = `${byAmt[0].sg} ${eok(byAmt[0].sub)}원`;
+document.getElementById('a1s').textContent = `연수 ${byAmt[0].n}건 · 2위 ${byAmt[1].sg}(${eok(byAmt[1].sub)}원)`;
+document.getElementById('rank-amount').innerHTML = byAmt.map((a,i)=>`<li class="${i===0?'top':''}" title="${a.sg}: ${won(a.sub)}원, 연수 ${a.n}건"><span class="rk">${i+1}</span><span class="nm">${a.sg}</span><span class="track"><span class="fill" style="width:${a.sub/maxAmt*100}%"></span></span><span class="vl">${eok(a.sub)}<em>${a.n}건</em></span></li>`).join('');
+
+// ② 비중
+const byShare = [...A].sort((a,b)=>b.share-a.share);
+const maxSh = byShare[0].share;
+document.getElementById('a2').textContent = `${byShare[0].sg} ${(byShare[0].share*100).toFixed(1)}%`;
+document.getElementById('a2s').textContent = `총사업비 ${eok(byShare[0].budget)}원 중 연수 ${eok(byShare[0].sub)}원`;
+document.getElementById('rank-share').innerHTML = byShare.map((a,i)=>`<li class="${i===0?'top':''}" title="${a.sg}: 연수 ${won(a.sub)}원 / 총사업비 ${won(a.budget)}원"><span class="rk">${i+1}</span><span class="nm">${a.sg}</span><span class="track"><span class="fill" style="width:${a.share/maxSh*100}%"></span></span><span class="vl">${(a.share*100).toFixed(1)}%<em>${eok(a.sub)}/${eok(a.budget)}</em></span></li>`).join('');
+
+// ③ 거리
+const byFar = [...T].sort((a,b)=>b.km-a.km).slice(0,10);
+const ties = byFar.filter(t=>byFar[0].km-t.km<50);
+const region = byFar[0].name.match(/\(([^)]*)\)/)?.[1] || byFar[0].dest;
+document.getElementById('a3').textContent = region.replace(/\//g,'·').replace(/\s*안보시찰/,'') + ' 연수';
+document.getElementById('a3s').textContent = ties.map(t=>`${t.sg} ${t.yr}(${t.days}일)`).join(' · ') + ` · 약 ${won(byFar[0].km)}km` + (ties.length>1?' — 같은 권역, 사실상 공동 1위':'');
+document.getElementById('rank-far').innerHTML = byFar.map((t,i)=>`<li class="${i===0?'top':''}"><span class="rk">${i+1}</span><span><span class="t">${t.sg} ${t.yr} · ${esc(t.dest)}</span><span class="d">최원거리 방문지 ${esc(t.far)} · ${t.days}일 · 보조금 ${man(t.sub)}원</span></span><span class="km">${won(t.km)}km</span></li>`).join('');
+
+// 표
+const fSg = document.getElementById('f-sg'), fYr = document.getElementById('f-yr'), fQ = document.getElementById('f-q');
+Object.keys(B).sort((a,b)=>a.localeCompare(b,'ko')).forEach(s=>fSg.add(new Option(s,s)));
+[...new Set(T.map(t=>t.yr))].sort().forEach(y=>fYr.add(new Option(y+'년',y)));
+let kind = '', sortK = 'no', sortDir = 1;
+document.querySelectorAll('#f-kind button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#f-kind button').forEach(x=>x.classList.remove('on'));b.classList.add('on');kind=b.dataset.v;render();});
+[fSg,fYr].forEach(e=>e.onchange=render); fQ.oninput=render;
+document.querySelectorAll('thead th').forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(sortK===k) sortDir*=-1; else {sortK=k; sortDir=(k==='sub'||k==='cnt')?-1:1;} render();});
+
+function cntCell(t){
+  if(t.status==='unknown') return '<span class="cnt unk">미공개</span>';
+  if(t.cnt===0) return '<span class="cnt zero">0명</span>';
+  return `<span class="cnt">${t.cnt}명</span>` + (t.prov?`<small>도의원 ${t.prov}명 포함</small>`:'');
+}
+function render(){
+  const q = fQ.value.trim();
+  let rows = T.filter(t=>(!fSg.value||t.sg===fSg.value)&&(!fYr.value||t.yr==fYr.value)&&(!kind||t.kind===kind)&&(!q||(t.name+t.dest).includes(q)));
+  rows.sort((a,b)=>{
+    let x=a[sortK], y=b[sortK];
+    if(sortK==='cnt'){x=x??-1;y=y??-1;}
+    return (typeof x==='string'? x.localeCompare(y,'ko') : x-y)*sortDir || a.no-b.no;
+  });
+  document.querySelectorAll('thead th').forEach(th=>{th.classList.toggle('sorted',th.dataset.k===sortK);th.querySelector('.ar').textContent=th.dataset.k===sortK?(sortDir>0?'↑':'↓'):'↕';});
+  document.getElementById('tb').innerHTML = rows.map(t=>`<tr>
+    <td class="no">${t.no}</td><td class="sg">${t.sg}</td><td>${t.yr}</td><td class="period">${t.period.replace(' ~ ','<br>~ ')}</td>
+    <td><span class="pill ${t.kind==='해외'?'abroad':'home'}">${t.kind}</span></td>
+    <td class="name">${esc(t.name)}</td><td class="dest">${esc(t.dest)}</td>
+    <td class="num">${won(t.sub)}</td><td class="num">${cntCell(t)}</td></tr>`).join('');
+  const s = rows.reduce((a,t)=>a+t.sub,0), c = rows.reduce((a,t)=>a+(t.cnt||0),0), u = rows.filter(t=>t.status==='unknown').length;
+  document.getElementById('tf').innerHTML = `<td colspan="7">합계 (${rows.length}건)</td><td class="num">${won(s)}</td><td class="num">${c}명${u?`<small style="display:block;font-weight:400;font-size:11.5px;color:var(--muted)">미공개 ${u}건 제외</small>`:''}</td>`;
+  document.getElementById('count').textContent = `${rows.length} / ${T.length}건 표시`;
+}
+render();
+</script>
+</body>
+</html>
