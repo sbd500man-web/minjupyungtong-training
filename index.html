@@ -137,7 +137,7 @@ tfoot td{padding:12px;font-weight:700;border-top:2px solid var(--ink);background
     </div>
     <div class="card">
       <span class="tag">② 5년간 받은 보조금</span>
-      <h3>5년간 보조금을 가장 많이 받은 지자체</h3>
+      <h3>5년간 보조금을 가장 많이 받은 지역 협의회</h3>
       <div class="answer" id="a2"></div>
       <div class="answer-sub" id="a2s"></div>
       <div class="legend"><span><i style="background:var(--c-train)"></i>그중 연수에 쓴 금액</span><span><i style="background:var(--c-rest)"></i>그 외 사업</span></div>
@@ -235,8 +235,8 @@ document.getElementById('rank-amount').innerHTML = byAmt.map((a,i)=>`<li class="
 // ② 5년간 받은 보조금
 const byBud = [...A].sort((a,b)=>b.budget-a.budget);
 const maxBud = byBud[0].budget;
-document.getElementById('a2').textContent = `${byBud[0].sg} ${eok(byBud[0].budget)}원`;
-document.getElementById('a2s').textContent = `그중 연수에 ${eok(byBud[0].sub)}원 · 2위 ${byBud[1].sg}(${eok(byBud[1].budget)}원)`;
+document.getElementById('a2').textContent = `${byBud[0].sg}협의회 ${eok(byBud[0].budget)}원`;
+document.getElementById('a2s').textContent = `그중 연수에 ${eok(byBud[0].sub)}원 · 2위 ${byBud[1].sg}협의회(${eok(byBud[1].budget)}원)`;
 document.getElementById('rank-budget').innerHTML = byBud.map((a,i)=>`<li class="${i===0?'top':''}" title="${a.sg}: 받은 보조금 ${won(a.budget)}원 중 연수 ${won(a.sub)}원"><span class="rk">${i+1}</span><span class="nm">${a.sg}</span><span class="track"><span class="seg-train" style="width:${a.sub/maxBud*100}%"></span><span class="seg-rest" style="width:${(a.budget-a.sub)/maxBud*100}%"></span></span><span class="vl"><b>${eok(a.budget)}</b><em>연수 ${eok(a.sub)}</em></span></li>`).join('')
   + `<li class="total"><span class="rk"></span><span class="nm">전체 합계</span><span class="track">14개 시군</span><span class="vl"><b>${eok(BT)}</b><em>연수 ${eok(totalSub)}</em></span></li>`;
 
